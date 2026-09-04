@@ -426,26 +426,32 @@
 
         <form action="https://formspree.io/f/xppzloya" method="POST" id="contactForm">
 
-            <label>
-                Your Name
-            </label>
+    <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Your Name"
+        required
+    >
 
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Your Email"
+        required
+    >
 
+    <textarea
+        id="message"
+        name="message"
+        placeholder="Your Message"
+        required
+    ></textarea>
 
-            <label>
-                Email Address
-            </label>
+    <button type="submit">Send Message</button>
 
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-
-
-            <label>
-                Message
-            </label>
-
-            <input type="hidden" name="_subject" value="New message from Subhajit Banerjee Website"></textarea>
-
+</form>
 
             <button type="submit" class="btn primary">
                 Send Message
