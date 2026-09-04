@@ -4,9 +4,7 @@ const menuBtn = document.getElementById("menuBtn");
 const navMenu = document.getElementById("navMenu");
 
 menuBtn.addEventListener("click", function () {
-
     navMenu.classList.toggle("open");
-
 });
 
 
@@ -15,9 +13,7 @@ menuBtn.addEventListener("click", function () {
 document.querySelectorAll(".nav-menu a").forEach(function(link) {
 
     link.addEventListener("click", function() {
-
         navMenu.classList.remove("open");
-
     });
 
 });
@@ -34,13 +30,11 @@ darkMode.addEventListener("click", function() {
     if (document.body.classList.contains("dark")) {
 
         darkMode.textContent = "☀️";
-
         localStorage.setItem("darkMode", "enabled");
 
     } else {
 
         darkMode.textContent = "🌙";
-
         localStorage.setItem("darkMode", "disabled");
 
     }
@@ -53,7 +47,6 @@ darkMode.addEventListener("click", function() {
 if (localStorage.getItem("darkMode") === "enabled") {
 
     document.body.classList.add("dark");
-
     darkMode.textContent = "☀️";
 
 }
@@ -66,24 +59,23 @@ document.getElementById("year").textContent =
 
 
 // ================= CONTACT FORM =================
+// Formspree handles the form submission.
+// No preventDefault() here.
 
-const contactForm =
-    document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", function(event) {
+const contactForm = document.getElementById("contactForm");
 
-    event.preventDefault();
+if (contactForm) {
 
-    const name =
-        document.getElementById("name").value;
+    contactForm.addEventListener("submit", function() {
 
-    const formMessage =
-        document.getElementById("formMessage");
+        const button = contactForm.querySelector("button");
 
-    formMessage.textContent =
-        "Thank you, " + name +
-        "! Your message has been received.";
+        if (button) {
+            button.textContent = "Sending...";
+            button.disabled = true;
+        }
 
-    contactForm.reset();
+    });
 
-});
+}
